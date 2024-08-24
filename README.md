@@ -1,4 +1,4 @@
-# mlProject
+# Uber Insights
 Student Project for the use of Machine Learning course.
 The idea is to analyze Uber pickup data, and gather insights.
 The dataset has information on about 4.5 million Uber pickups in New York City from April 2014 to September 2014 and 14 million more from January 2015 to June 2015. Users can perform data analysis and gather insights from the data. 
