@@ -19,7 +19,7 @@ Project Idea: To analyze the data of the customer rides and visualize the data t
 ```bash
 pip install numpy matplotlib pandas seaborn
 ```
-6. basemap
+6. **basemap**
 ### On Linux (Debian/Ubuntu)
 ```bash
 sudo apt-get install libgeos-dev
