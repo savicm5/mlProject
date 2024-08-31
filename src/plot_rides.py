@@ -44,7 +44,6 @@ def plot_rides_by_hour(data):
 
 def plot_rides_by_month(data, month_order):
     month_counts = data['Month'].value_counts().reindex(month_order)
-    print(month_counts)
 
     plt.figure(figsize=(10, 6))
     sns.barplot(x=month_counts.index, y=month_counts.values, palette='viridis', hue=month_counts.index, legend=False)
