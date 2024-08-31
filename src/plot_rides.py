@@ -15,9 +15,20 @@ def plot_rides_by_day(data):
 def plot_rides_by_day_of_month(data):
     plt.figure(figsize=(10,6))
     sns.histplot(data['Day'], bins=31, kde=False)
-    plt.title('Distribution of Pickups by Days of Month')
+    plt.title('Distribution of pickups by days of month')
     plt.xlabel('Day of the Month')
     plt.ylabel('Number of Pickups')
+    plt.xticks(range(1, 32))
+    plt.show()
+
+def plot_rides_by_day_for_specific_month(data, month):
+    month_data = data[data['Month'] == month]
+
+    plt.figure(figsize=(10,6))
+    sns.histplot(month_data['Day'], bins=31, kde=False)
+    plt.title(f'Distribution of pickups by days in {month}')
+    plt.xlabel('Day of the month')
+    plt.ylabel('Number of pickups')
     plt.xticks(range(1, 32))
     plt.show()
 
