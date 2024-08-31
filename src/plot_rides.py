@@ -3,8 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 def plot_rides_by_day(data):
-    data['DAY'] = data['DATETIME'].dt.day_name()
-    day_counts = data['DAY'].value_counts().reindex(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+    day_counts = data['DayOfWeek'].value_counts().reindex(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
     
     plt.figure(figsize=(10, 6))
     sns.barplot(x=day_counts.index, y=day_counts.values, palette='viridis', hue=day_counts.index, legend=False)
@@ -14,8 +13,7 @@ def plot_rides_by_day(data):
     plt.show()
 
 def plot_rides_by_hour(data):
-    data['HOUR'] = data['DATETIME'].dt.hour
-    hour_counts = data['HOUR'].value_counts().sort_index()
+    hour_counts = data['Hour'].value_counts().sort_index()
     
     plt.figure(figsize=(10, 6))
     sns.barplot(x=hour_counts.index, y=hour_counts.values, palette='viridis', hue=hour_counts.index, legend=False)
@@ -25,9 +23,9 @@ def plot_rides_by_hour(data):
     plt.show()
 
 def plot_rides_by_month(data, month_order):
-    data['MONTH'] = data['DATETIME'].dt.month_name()
-    month_counts = data['MONTH'].value_counts().reindex(month_order)
-    
+    month_counts = data['Month'].value_counts().reindex(month_order)
+    print(month_counts)
+
     plt.figure(figsize=(10, 6))
     sns.barplot(x=month_counts.index, y=month_counts.values, palette='viridis', hue=month_counts.index, legend=False)
     plt.title('Number of rides by month')
