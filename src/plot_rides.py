@@ -12,6 +12,15 @@ def plot_rides_by_day(data):
     plt.ylabel('Number of rides')
     plt.show()
 
+def plot_rides_by_day_of_month(data):
+    plt.figure(figsize=(10,6))
+    sns.histplot(data['Day'], bins=31, kde=False)
+    plt.title('Distribution of Pickups by Days of Month')
+    plt.xlabel('Day of the Month')
+    plt.ylabel('Number of Pickups')
+    plt.xticks(range(1, 32))
+    plt.show()
+
 def plot_rides_by_hour(data):
     hour_counts = data['Hour'].value_counts().sort_index()
     
