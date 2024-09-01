@@ -51,14 +51,13 @@ pip install basemap basemap-data-hires
 ## Code summary
 ### Notebooks
 1. Analysis of Uber trips from April to September 2014
-2. Analysis of non-uber for hire vehicles trips from January to August 2015
+2. Analysis of non-uber for-hire vehicle trips from January to August 2015
 3. Analysis of Uber trips from January to June 2015
 4. Analysis of American trips from July to September 2014
 5. Analysis of Lyft trips from July to September 2014 
 6. Analysis of Skyline trips from July to September 2014 
 7. Analysis of Dial trips from July to September 2014 
-* Datasets of the rest of the Non-hire-vehicle was not possible to load due to coding mistake
-
+* Datasets of the rest of the Non-hire-vehicle were not possible to load due to a coding mistake
 ### Scrips
 1. extract_data : Script for extraction of time-date specific data from dataset
 2. plot_rides : Script with frequently used plot functions
