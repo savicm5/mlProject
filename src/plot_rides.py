@@ -12,7 +12,6 @@ def plot_rides_by_day(data):
     plt.ylabel('Number of rides')
     plt.show()
 
-
 def plot_rides_by_day_for_each_month(data, months_order):
     days_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
@@ -32,8 +31,6 @@ def plot_rides_by_day_for_each_month(data, months_order):
     plt.tight_layout()
 
     plt.show()
-
-
 
 def plot_rides_by_day_of_month(data):
     plt.figure(figsize=(10,6))
@@ -79,4 +76,24 @@ def plot_rides_by_month(data):
     plt.xlabel('Month')
     plt.ylabel('Number of rides')
     plt.xticks(rotation=45)  
+    plt.show()
+
+def plot_number_of_trips_or_vehicles_by_attribute(data, number_of, attr, month = None, order = None):
+
+    summary = data.groupby(attr)[number_of].sum().reset_index()
+
+    if order:
+        summary[attr] = pd.Categorical(summary[attr], categories=order, ordered=True)
+        summary = summary.sort_values(attr).reset_index(drop=True)
+
+    plt.figure(figsize=(10, 6))
+    sns.barplot(x=attr, y=number_of, data=summary, palette='viridis', hue = attr, legend= False)
+
+    plt.title(f'Total {number_of.lower()} per {attr.lower()}'+ (f' in {month}' if month else ''))
+    plt.xlabel(attr)
+    plt.ylabel(number_of)
+
+    plt.xticks(rotation=45)
+
+    plt.tight_layout()
     plt.show()
