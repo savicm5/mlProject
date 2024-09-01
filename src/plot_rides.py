@@ -42,12 +42,18 @@ def plot_rides_by_hour(data):
     plt.ylabel('Number of rides')
     plt.show()
 
-def plot_rides_by_month(data, month_order):
-    month_counts = data['Month'].value_counts().reindex(month_order)
+def plot_rides_by_month(data):
+    month_order = ['January', 'February', 'March', 'April', 'May', 'June', 
+                   'July', 'August', 'September', 'October', 'November', 'December']
+    
+    month_counts = data['Month'].value_counts()
+    
+    month_counts = month_counts.reindex(month_order).dropna()
 
     plt.figure(figsize=(10, 6))
-    sns.barplot(x=month_counts.index, y=month_counts.values, palette='viridis', hue=month_counts.index, legend=False)
-    plt.title('Number of rides by month')
+    sns.barplot(x=month_counts.index, y=month_counts.values, palette='viridis')
+    plt.title('Number of Rides by Month')
     plt.xlabel('Month')
-    plt.ylabel('Number of rides')
+    plt.ylabel('Number of Rides')
+    plt.xticks(rotation=45)  
     plt.show()
