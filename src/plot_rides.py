@@ -12,6 +12,29 @@ def plot_rides_by_day(data):
     plt.ylabel('Number of rides')
     plt.show()
 
+
+def plot_rides_by_day_for_each_month(data, months_order):
+    days_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
+    data_agg = data.groupby(['Month', 'DayOfWeek']).size().reset_index(name='count')
+
+    data_agg['Month'] = pd.Categorical(data_agg['Month'], categories=months_order, ordered=True)
+
+    plt.figure(figsize=(14, 8))
+
+    sns.barplot(data=data_agg, x='Month', y='count', hue='DayOfWeek', hue_order=days_order, palette='tab10')
+
+    plt.xlabel('Month')
+    plt.ylabel('Count')
+    plt.title('Distribution of data by day of the week for each month')
+    plt.legend(title='Day of the Week', bbox_to_anchor=(1.05, 1), loc='upper left')
+
+    plt.tight_layout()
+
+    plt.show()
+
+
+
 def plot_rides_by_day_of_month(data):
     plt.figure(figsize=(10,6))
     sns.histplot(data['Day'], bins=31, kde=False)
