@@ -51,9 +51,9 @@ def plot_rides_by_month(data):
     month_counts = month_counts.reindex(month_order).dropna()
 
     plt.figure(figsize=(10, 6))
-    sns.barplot(x=month_counts.index, y=month_counts.values, palette='viridis')
-    plt.title('Number of Rides by Month')
+    sns.barplot(x=month_counts.index, y=month_counts.values, palette='viridis', hue=month_counts.index, legend=False)
+    plt.title('Number of rides by month')
     plt.xlabel('Month')
-    plt.ylabel('Number of Rides')
+    plt.ylabel('Number of rides')
     plt.xticks(rotation=45)  
     plt.show()
