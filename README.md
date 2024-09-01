@@ -57,8 +57,8 @@ pip install basemap basemap-data-hires
 5. Analysis of Lyft trips from July to September 2014 
 6. Analysis of Skyline trips from July to September 2014 
 7. Analysis of Dial trips from July to September 2014 
-* Datasets of the rest of the Non-hire-vehicle were not possible to load due to a coding mistake
-### Scrips
+* Datasets of the rest of the Non-hire-vehicle were not possible to load due to a decode error
+### Scripts
 1. extract_data : Script for extraction of time-date specific data from dataset
 2. plot_rides : Script with frequently used plot functions
 
